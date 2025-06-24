@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/navigation_track"
-        android:name="com.project.project_anmp_160719028_160420009.ui.home.HomeFragment"
+        android:name="com.project.project_anmp_160719028_160420009.ui.home.ExpenseFragment"
         android:label="Expense Track"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_expense" />
 
     <fragment
         android:id="@+id/navigation_budgeting"
-        android:name="com.project.project_anmp_160719028_160420009.ui.dashboard.DashboardFragment"
+        android:name="com.project.project_anmp_160719028_160420009.ui.dashboard.BudgetFragment"
         android:label="Budgeting"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_budget">
         <action
             android:id="@+id/action_navigate_budgeting_to_Add_Budget"
             app:destination="@id/addBudgetFragment" />
@@ -23,9 +23,9 @@
 
     <fragment
         android:id="@+id/navigation_report"
-        android:name="com.project.project_anmp_160719028_160420009.ui.notifications.NotificationsFragment"
+        android:name="com.project.project_anmp_160719028_160420009.ui.notifications.ReportFragment"
         android:label="Report"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_report" />
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.project.project_anmp_160719028_160420009.ProfileFragment"
