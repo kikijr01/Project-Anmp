@@ -3,23 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_track">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_track"
         android:name="com.project.project_anmp_160719028_160420009.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="Expense Track"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_budgeting"
         android:name="com.project.project_anmp_160719028_160420009.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="Budgeting"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigate_budgeting_to_Add_Budget"
+            app:destination="@id/addBudgetFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_report"
         android:name="com.project.project_anmp_160719028_160420009.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="Report"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.project.project_anmp_160719028_160420009.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/addBudgetFragment"
+        android:name="com.project.project_anmp_160719028_160420009.AddBudgetFragment"
+        android:label="AddBudgetFragment" />
 </navigation>

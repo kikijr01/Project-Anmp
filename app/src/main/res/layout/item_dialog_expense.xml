@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvDialogDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="19 Mei 2025 10:15 AM"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvDialogNominal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IDR 88.000"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvDialogNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pesan gojek dari West ke East"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvDialogBudgetChip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transport"
+        android:background="@drawable/chip_background"
+        android:padding="4dp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="end"/>
+</LinearLayout>
