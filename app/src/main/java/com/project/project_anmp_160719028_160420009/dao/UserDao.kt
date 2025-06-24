@@ -1,0 +1,15 @@
+package com.project.project_anmp_160719028_160420009.dao
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import com.project.project_anmp_160719028_160420009.entity.UserEntity
+
+@Dao
+interface UserDao {
+    @Insert
+    suspend fun insert(user: UserEntity)
+
+    @Query("SELECT * FROM user WHERE username = :username LIMIT 1")
+    suspend fun getUser(username: String): UserEntity?
+}
