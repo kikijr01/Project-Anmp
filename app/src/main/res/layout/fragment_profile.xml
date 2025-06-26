@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ProfileFragment">
 
-
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="viewModel"-->
-<!--            type="com.example.app.ui.profile.ProfileViewModel" />-->
-<!--    </data>-->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.project.project_anmp_160719028_160420009.viewModel.UserViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -1,59 +1,88 @@
-package com.project.project_anmp_160719028_160420009
+package com.project.project_anmp_160719028_160420009.view
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.project.project_anmp_160719028_160420009.LoginActivity
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+import com.project.project_anmp_160719028_160420009.databinding.FragmentProfileBinding
+import com.project.project_anmp_160719028_160420009.entity.UserEntity
+
+import com.project.project_anmp_160719028_160420009.viewModel.UserViewModel
+
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+    private var currentUser: UserEntity? = null
+    private lateinit var viewModel: UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+    ): View {
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this)[UserViewModel::class.java]
+
+        // Ambil username dari SharedPreferences
+        val sharedPref = requireActivity().getSharedPreferences("login_session", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("username", null)
+
+        // Load user dari ViewModel
+        if (username != null) {
+            viewModel.fetch(username)
+        }
+
+
+        viewModel.user.observe(viewLifecycleOwner) { user ->
+            Log.d("user",user.toString())
+            currentUser = user
+        }
+
+        binding.btnChangePassword.setOnClickListener {
+            Log.d("TRIGGER CHANGE","TRIGGER BUTTON")
+            val oldPassword = binding.etOldPassword.text.toString()
+            val newPassword = binding.etNewPassword.text.toString()
+            val repeatPassword = binding.etRepeatPassword.text.toString()
+
+            if (currentUser != null) {
+                if (oldPassword != currentUser!!.password) {
+                    Toast.makeText(requireContext(), "Old password is incorrect", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
                 }
+
+                if (newPassword != repeatPassword) {
+                    Toast.makeText(requireContext(), "New and repeat passwords must match", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                currentUser!!.password = newPassword
+                viewModel.update(currentUser!!)
+                Toast.makeText(requireContext(), "Password updated successfully", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.btnSignOut.setOnClickListener {
+            sharedPref.edit().clear().apply()
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

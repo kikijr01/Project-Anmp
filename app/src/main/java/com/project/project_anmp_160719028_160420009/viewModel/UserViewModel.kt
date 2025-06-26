@@ -2,6 +2,7 @@ package com.project.project_anmp_160719028_160420009.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.project.project_anmp_160719028_160420009.buildDb
 import com.project.project_anmp_160719028_160420009.entity.UserEntity
@@ -12,6 +13,16 @@ import kotlinx.coroutines.withContext
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val db = buildDb(getApplication())
+    val user = MutableLiveData<UserEntity>()
+
+    fun fetch(username: String) {
+        viewModelScope.launch {
+            val userResult = withContext(Dispatchers.IO) {
+                db.userDao().getUserByUsername(username)
+            }
+            user.postValue(userResult!!)
+        }
+    }
 
     fun register(user: UserEntity, onResult: (Boolean) -> Unit) {
         viewModelScope.launch {
@@ -23,6 +34,11 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 onResult(false)
             }
+        }
+    }
+    fun update(userEntity: UserEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            db.userDao().updateUser(userEntity)
         }
     }
 

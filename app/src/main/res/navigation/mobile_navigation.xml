@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_navigate_budgeting_to_Add_Budget"
             app:destination="@id/addBudgetFragment" />
+        <action
+            android:id="@+id/action_navigate_budgeting_to_editBudget"
+            app:destination="@id/editBudgetFragment" />
     </fragment>
 
     <fragment
@@ -28,11 +31,20 @@
         tools:layout="@layout/fragment_report" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.project.project_anmp_160719028_160420009.ProfileFragment"
+        android:name="com.project.project_anmp_160719028_160420009.view.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/addBudgetFragment"
         android:name="com.project.project_anmp_160719028_160420009.AddBudgetFragment"
         android:label="AddBudgetFragment" />
+    <fragment
+        android:id="@+id/editBudgetFragment"
+        android:name="com.project.project_anmp_160719028_160420009.EditBudgetFragment"
+        android:label="EditBudgetFragment" >
+    <argument
+        android:name="id"
+        app:argType="integer"
+        android:defaultValue="-1" />
+    </fragment>
 </navigation>
