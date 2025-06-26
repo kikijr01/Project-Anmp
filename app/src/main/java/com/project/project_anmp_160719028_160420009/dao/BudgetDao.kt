@@ -11,17 +11,17 @@ import com.project.project_anmp_160719028_160420009.entity.BudgetEntity
 @Dao
 interface BudgetDao {
     @Insert
-    suspend fun insert(budget: BudgetEntity)
+     fun insert(budget: BudgetEntity)
 
     @Update
-    suspend fun update(budget: BudgetEntity)
+    fun update(budget: BudgetEntity)
 
     @Query("SELECT * FROM budget")
     fun getAll(): LiveData<List<BudgetEntity>>
 
     @Query("SELECT * FROM budget WHERE id = :id")
-    suspend fun getById(id: Int): BudgetEntity?
+    fun getById(id: Int): BudgetEntity?
 
     @Delete
-    suspend fun delete(budget: BudgetEntity)
+    fun delete(budget: BudgetEntity)
 }

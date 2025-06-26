@@ -8,8 +8,8 @@ import com.project.project_anmp_160719028_160420009.entity.UserEntity
 @Dao
 interface UserDao {
     @Insert
-    suspend fun insert(user: UserEntity)
+    fun insert(user: UserEntity)
 
-    @Query("SELECT * FROM user WHERE username = :username LIMIT 1")
-    suspend fun getUser(username: String): UserEntity?
+    @Query("SELECT * FROM user WHERE username = :username and password = :password  LIMIT 1")
+    fun getUser(username: String, password:String): UserEntity?
 }
