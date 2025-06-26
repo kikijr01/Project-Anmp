@@ -24,4 +24,7 @@ interface BudgetDao {
 
     @Delete
     fun delete(budget: BudgetEntity)
+
+    @Query("SELECT SUM(nominal) FROM expense WHERE budgetId = :budgetId")
+    fun getTotalExpenseForBudget(budgetId: Int): Float?
 }

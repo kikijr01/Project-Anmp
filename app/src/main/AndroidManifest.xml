@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Project_Anmp_160719028_160420009"
         tools:targetApi="31">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

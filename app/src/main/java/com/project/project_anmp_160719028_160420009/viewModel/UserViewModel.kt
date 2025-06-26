@@ -27,11 +27,20 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun login(username: String, password: String, onResult: (UserEntity?) -> Unit) {
-        viewModelScope.launch {
-            val user = withContext(Dispatchers.IO) {
-                db.userDao().getUser(username, password)
+        viewModelScope.launch(Dispatchers.IO) {
+            val user = db.userDao().getUser(username, password)
+            withContext(Dispatchers.Main) {
+                onResult(user)
             }
-            onResult(user)
         }
     }
+    fun cekUsername(username: String, onResult: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            val user = withContext(Dispatchers.IO) {
+                db.userDao().getUserByUsername(username)
+            }
+            onResult(user != null)
+        }
+    }
+
 }

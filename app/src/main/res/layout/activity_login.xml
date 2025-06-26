@@ -49,12 +49,12 @@
         android:backgroundTint="#FFFFFF"
         android:text="SIGN UP"
         android:textColor="#673AB7"
-        app:layout_constraintEnd_toStartOf="@+id/btnSignIn"
+        app:layout_constraintEnd_toStartOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
