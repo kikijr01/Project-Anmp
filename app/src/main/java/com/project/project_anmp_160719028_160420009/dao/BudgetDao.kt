@@ -25,6 +25,13 @@ interface BudgetDao {
     @Delete
     fun delete(budget: BudgetEntity)
 
+    @Query("SELECT name FROM budget WHERE id = :budgetId")
+    fun getBudgetNameById(budgetId: Int): String
+
+    @Query("SELECT maxAmount FROM budget WHERE id = :budgetId")
+    fun getTotaBudgetById(budgetId: Int): Float?
+
+
     @Query("SELECT SUM(nominal) FROM expense WHERE budgetId = :budgetId")
     fun getTotalExpenseForBudget(budgetId: Int): Float?
 }

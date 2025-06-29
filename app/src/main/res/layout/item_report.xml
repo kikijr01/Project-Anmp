@@ -45,14 +45,9 @@
         <!-- Progress Bar -->
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progressBudget"
-            style="@style/Widget.Material3.LinearProgressIndicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:indicatorColor="?attr/colorPrimary"
-            app:showAnimationBehavior="none"
-            app:trackColor="@color/material_dynamic_neutral80"
-            app:trackThickness="8dp" />
+            android:layout_marginTop="8dp" />
 
         <!-- Sisa Budget -->
         <TextView

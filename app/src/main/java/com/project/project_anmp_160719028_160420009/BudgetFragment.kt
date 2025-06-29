@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009.ui.dashboard
+package com.project.project_anmp_160719028_160420009
 
 import android.os.Bundle
 import android.util.Log
@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.project.project_anmp_160719028_160420009.BudgetAdapter
-import com.project.project_anmp_160719028_160420009.R
 import com.project.project_anmp_160719028_160420009.databinding.FragmentBudgetBinding
 import com.project.project_anmp_160719028_160420009.viewModel.BudgetViewModel
 

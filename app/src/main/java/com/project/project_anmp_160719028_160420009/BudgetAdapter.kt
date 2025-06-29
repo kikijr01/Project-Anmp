@@ -11,10 +11,10 @@ import java.util.Locale
 class BudgetAdapter (
     private var list: List<BudgetEntity>,
     private val onEditClick: (BudgetEntity) -> Unit
-) : RecyclerView.Adapter<BudgetAdapter.CustomerViewHolder>() {
+) : RecyclerView.Adapter<BudgetAdapter.BudgetViewHolder>() {
 
 
-    inner class CustomerViewHolder(private val binding: ItemBudgetBinding) :
+    inner class BudgetViewHolder(private val binding: ItemBudgetBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(budget: BudgetEntity) {
@@ -28,12 +28,12 @@ class BudgetAdapter (
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BudgetViewHolder {
         val binding = ItemBudgetBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CustomerViewHolder(binding)
+        return BudgetViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CustomerViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BudgetViewHolder, position: Int) {
         holder.bind(list[position])
     }
 

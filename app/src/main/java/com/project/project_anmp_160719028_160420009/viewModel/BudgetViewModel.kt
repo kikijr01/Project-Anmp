@@ -79,4 +79,13 @@ class BudgetViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
+    fun getTotalBudgetById(budgetId: Int, onResult: (Float) -> Unit) {
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                budgetDao.getTotaBudgetById(budgetId) ?: 0f
+            }
+            onResult(result)
+        }
+    }
+
 }
