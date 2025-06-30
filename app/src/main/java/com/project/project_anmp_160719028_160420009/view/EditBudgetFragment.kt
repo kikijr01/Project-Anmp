@@ -35,7 +35,7 @@ class EditBudgetFragment : Fragment() {
         viewModel.getBudgetById(budgetId) { budget ->
             if (budget != null) {
                 binding.etEditBudgetName.setText(budget.name)
-                binding.etEditBudgetNominal.setText(budget.maxAmount.toString())
+                binding.etEditBudgetNominal.setText(String.format("%.0f", budget.maxAmount))
 
                 binding.btnUpdateBudget.setOnClickListener {
                     val newName = binding.etEditBudgetName.text.toString().trim()
