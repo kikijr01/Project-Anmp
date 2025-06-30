@@ -15,6 +15,40 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val db = buildDb(getApplication())
     val user = MutableLiveData<UserEntity>()
 
+    // For two-way binding
+    val oldPassword = MutableLiveData<String>()
+    val newPassword = MutableLiveData<String>()
+    val repeatPassword = MutableLiveData<String>()
+
+    // For listener binding
+    var listener: ProfileActionListener? = null
+
+    fun onSignOutClicked() {
+        listener?.onSignOut()
+    }
+
+    fun onChangePasswordClicked() {
+        val currentUser = user.value
+        if (currentUser != null) {
+            if (oldPassword.value != currentUser.password) {
+                listener?.onShowMessage("Password lama tidak cocok")
+                return
+            }
+            if (newPassword.value != repeatPassword.value) {
+                listener?.onShowMessage("Repeat Password tidak sama")
+                return
+            }
+            currentUser.password = newPassword.value ?: ""
+            update(currentUser)
+            listener?.onShowMessage("Password updated successfully")
+        }
+    }
+
+    interface ProfileActionListener {
+        fun onSignOut()
+        fun onShowMessage(msg: String)
+    }
+
     fun fetch(username: String) {
         viewModelScope.launch {
             val userResult = withContext(Dispatchers.IO) {
