@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009
+package com.project.project_anmp_160719028_160420009.view
 
 import android.content.Context
 import android.content.Intent

@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.project.project_anmp_160719028_160420009.entity.UserEntity
+import com.project.project_anmp_160719028_160420009.model.UserEntity
 
 @Dao
 interface UserDao {

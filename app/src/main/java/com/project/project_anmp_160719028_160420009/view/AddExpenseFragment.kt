@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009
+package com.project.project_anmp_160719028_160420009.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.project.project_anmp_160719028_160420009.databinding.FragmentAddExpenseBinding
-import com.project.project_anmp_160719028_160420009.entity.ExpenseEntity
+import com.project.project_anmp_160719028_160420009.model.ExpenseEntity
 import com.project.project_anmp_160719028_160420009.viewModel.BudgetViewModel
 import com.project.project_anmp_160719028_160420009.viewModel.ExpenseViewModel
 import java.text.NumberFormat
@@ -105,12 +105,12 @@ class AddExpenseFragment : Fragment() {
 
         val nominal = nominalStr.toFloatOrNull()
         if (nominal == null || nominal <= 0) {
-            showToast("Nominal must be a positive number")
+            showToast("Nominal Tidak Boleh Negatif")
             return
         }
 
         if (nominal > maxBudget - usedBudget) {
-            showToast("Nominal exceeds remaining budget")
+            showToast("Nominal Melebihi budget")
             return
         }
 
@@ -123,10 +123,10 @@ class AddExpenseFragment : Fragment() {
 
         expenseViewModel.insert(expense) { success ->
             if (success) {
-                showToast("Expense added successfully")
+                showToast("Total Expense Melebihi Budget")
                 requireActivity().onBackPressedDispatcher.onBackPressed()
             } else {
-                showToast("Failed to add expense")
+                showToast("Gagal add expense")
             }
         }
     }

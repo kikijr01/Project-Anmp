@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.project.project_anmp_160719028_160420009.buildDb
-import com.project.project_anmp_160719028_160420009.entity.UserEntity
+import com.project.project_anmp_160719028_160420009.model.UserEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

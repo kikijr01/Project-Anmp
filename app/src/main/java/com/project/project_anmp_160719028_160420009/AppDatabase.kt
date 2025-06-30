@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import com.project.project_anmp_160719028_160420009.dao.BudgetDao
 import com.project.project_anmp_160719028_160420009.dao.ExpenseDao
 import com.project.project_anmp_160719028_160420009.dao.UserDao
-import com.project.project_anmp_160719028_160420009.entity.BudgetEntity
-import com.project.project_anmp_160719028_160420009.entity.ExpenseEntity
-import com.project.project_anmp_160719028_160420009.entity.UserEntity
+import com.project.project_anmp_160719028_160420009.model.BudgetEntity
+import com.project.project_anmp_160719028_160420009.model.ExpenseEntity
+import com.project.project_anmp_160719028_160420009.model.UserEntity
 
 @Database(
     entities = [UserEntity::class, BudgetEntity::class, ExpenseEntity::class],

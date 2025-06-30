@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009.entity
+package com.project.project_anmp_160719028_160420009.model
 
 import androidx.room.Entity
 import androidx.room.ForeignKey

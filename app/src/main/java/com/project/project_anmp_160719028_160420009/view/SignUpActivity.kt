@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009
+package com.project.project_anmp_160719028_160420009.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.project.project_anmp_160719028_160420009.databinding.ActivitySignUpBinding
-import com.project.project_anmp_160719028_160420009.entity.UserEntity
+import com.project.project_anmp_160719028_160420009.model.UserEntity
 import com.project.project_anmp_160719028_160420009.viewModel.UserViewModel
 
 class SignUpActivity : AppCompatActivity() {

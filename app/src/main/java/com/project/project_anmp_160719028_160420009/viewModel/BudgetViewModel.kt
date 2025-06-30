@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.project.project_anmp_160719028_160420009.buildDb
-import com.project.project_anmp_160719028_160420009.entity.BudgetEntity
+import com.project.project_anmp_160719028_160420009.model.BudgetEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

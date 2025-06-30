@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.project_anmp_160719028_160420009.databinding.ItemBudgetBinding
-import com.project.project_anmp_160719028_160420009.entity.BudgetEntity
+import com.project.project_anmp_160719028_160420009.model.BudgetEntity
 import java.text.NumberFormat
 import java.util.Locale
 

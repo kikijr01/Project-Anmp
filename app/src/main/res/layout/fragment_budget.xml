@@ -5,7 +5,7 @@
     android:id="@+id/budgetListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BudgetFragment">
+    tools:context=".view.BudgetFragment">
 
     <TextView
         android:id="@+id/tvTitle"

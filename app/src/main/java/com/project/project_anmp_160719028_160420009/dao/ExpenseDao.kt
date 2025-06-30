@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.project.project_anmp_160719028_160420009.entity.ExpenseEntity
+import com.project.project_anmp_160719028_160420009.model.ExpenseEntity
 
 @Dao
 interface ExpenseDao {

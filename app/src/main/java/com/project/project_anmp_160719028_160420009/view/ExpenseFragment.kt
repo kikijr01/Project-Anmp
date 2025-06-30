@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009
+package com.project.project_anmp_160719028_160420009.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.project_anmp_160719028_160420009.ExpenseAdapter
+import com.project.project_anmp_160719028_160420009.R
 import com.project.project_anmp_160719028_160420009.databinding.FragmentExpenseBinding
 import com.project.project_anmp_160719028_160420009.viewModel.ExpenseViewModel
 

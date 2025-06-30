@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009
+package com.project.project_anmp_160719028_160420009.view
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.project.project_anmp_160719028_160420009.R
 import com.project.project_anmp_160719028_160420009.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

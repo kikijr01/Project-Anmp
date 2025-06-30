@@ -1,4 +1,4 @@
-package com.project.project_anmp_160719028_160420009
+package com.project.project_anmp_160719028_160420009.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.project_anmp_160719028_160420009.ReportAdapter
 import com.project.project_anmp_160719028_160420009.databinding.FragmentReportBinding
 import com.project.project_anmp_160719028_160420009.viewModel.BudgetViewModel
 import java.text.NumberFormat

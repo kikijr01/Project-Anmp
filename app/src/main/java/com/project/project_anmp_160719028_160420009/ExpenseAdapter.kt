@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.project_anmp_160719028_160420009.databinding.ItemDialogExpenseBinding
 import com.project.project_anmp_160719028_160420009.databinding.ItemExpanseBinding
-import com.project.project_anmp_160719028_160420009.entity.ExpenseEntity
+import com.project.project_anmp_160719028_160420009.model.ExpenseEntity
 import com.project.project_anmp_160719028_160420009.viewModel.ExpenseViewModel
 import java.text.NumberFormat
 import java.text.SimpleDateFormat

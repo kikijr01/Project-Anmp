@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.project.project_anmp_160719028_160420009.entity.BudgetEntity
+import com.project.project_anmp_160719028_160420009.model.BudgetEntity
 
 @Dao
 interface BudgetDao {

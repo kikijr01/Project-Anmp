@@ -9,10 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
-import com.project.project_anmp_160719028_160420009.LoginActivity
-
 import com.project.project_anmp_160719028_160420009.databinding.FragmentProfileBinding
-import com.project.project_anmp_160719028_160420009.entity.UserEntity
+import com.project.project_anmp_160719028_160420009.model.UserEntity
 
 import com.project.project_anmp_160719028_160420009.viewModel.UserViewModel
 
@@ -52,7 +50,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnChangePassword.setOnClickListener {
-            Log.d("TRIGGER CHANGE","TRIGGER BUTTON")
+
             val oldPassword = binding.etOldPassword.text.toString()
             val newPassword = binding.etNewPassword.text.toString()
             val repeatPassword = binding.etRepeatPassword.text.toString()
