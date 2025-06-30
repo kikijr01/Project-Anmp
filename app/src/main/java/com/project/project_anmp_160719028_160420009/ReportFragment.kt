@@ -41,7 +41,7 @@ class ReportFragment : Fragment() {
         viewModel.budgets.observe(viewLifecycleOwner) { budgetList ->
             adapter.updateData(budgetList)
 
-            // Hitung total budget dan total expense
+
             var totalBudget = 0f
             var totalExpense = 0f
             val formatRupiah = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
@@ -53,7 +53,7 @@ class ReportFragment : Fragment() {
                     viewModel.getTotalExpenseForBudget(budget.id) { used ->
                         totalExpense += used
 
-                        // Tampilkan total jika semua sudah dihitung
+
                         binding.tvTotal.text = "Total Expenses / Budget\n" +
                                 "${formatRupiah.format(totalExpense)} / ${formatRupiah.format(totalBudget)}"
                     }

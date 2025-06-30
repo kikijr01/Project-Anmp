@@ -3,7 +3,6 @@ package com.project.project_anmp_160719028_160420009
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.project.project_anmp_160719028_160420009.databinding.ActivitySignUpBinding

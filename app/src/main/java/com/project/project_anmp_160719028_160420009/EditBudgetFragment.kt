@@ -32,7 +32,6 @@ class EditBudgetFragment : Fragment() {
 
         val budgetId = args.id
 
-        // Ambil budget dari database dan isi ke EditText
         viewModel.getBudgetById(budgetId) { budget ->
             if (budget != null) {
                 binding.etEditBudgetName.setText(budget.name)
@@ -53,13 +52,29 @@ class EditBudgetFragment : Fragment() {
                         return@setOnClickListener
                     }
 
-                    val updatedBudget = budget.copy(name = newName, maxAmount = newNominal)
-                    viewModel.update(updatedBudget) { success ->
-                        if (success) {
-                            Toast.makeText(requireContext(), "Budget berhasil diperbarui", Toast.LENGTH_SHORT).show()
-                            findNavController().popBackStack()
-                        } else {
-                            Toast.makeText(requireContext(), "Gagal memperbarui budget", Toast.LENGTH_SHORT).show()
+
+                    viewModel.getTotalExpenseForBudget(budgetId) { totalExpense ->
+                        if (newNominal < totalExpense) {
+                            Toast.makeText(
+                                requireContext(),
+                                "Budget tidak boleh lebih kecil dari total expense",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            return@getTotalExpenseForBudget
+                        }
+
+                        val updatedBudget = BudgetEntity(
+                            id = budget.id,
+                            name = newName,
+                            maxAmount = newNominal
+                        )
+                        viewModel.update(updatedBudget) { success ->
+                            if (success) {
+                                Toast.makeText(requireContext(), "Budget berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                                findNavController().popBackStack()
+                            } else {
+                                Toast.makeText(requireContext(), "Gagal memperbarui budget", Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
                 }
@@ -69,6 +84,7 @@ class EditBudgetFragment : Fragment() {
             }
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

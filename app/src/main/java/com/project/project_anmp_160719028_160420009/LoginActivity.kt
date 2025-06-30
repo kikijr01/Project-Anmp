@@ -5,10 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.project.project_anmp_160719028_160420009.databinding.ActivityLoginBinding
 import com.project.project_anmp_160719028_160420009.viewModel.UserViewModel
@@ -35,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("USER", user.toString())
 
                     if (user != null) {
-                        // Simpan ke SharedPreferences
+
                         pref.edit().putString("username", user.username).apply()
 
                         startActivity(Intent(this, MainActivity::class.java))

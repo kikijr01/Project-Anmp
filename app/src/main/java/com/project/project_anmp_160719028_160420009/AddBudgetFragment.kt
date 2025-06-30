@@ -33,13 +33,13 @@ class AddBudgetFragment : Fragment() {
             val name = binding.etBudgetName.text.toString().trim()
             val nominalStr = binding.etBudgetNominal.text.toString().trim()
 
-            // Validasi nama
+
             if (name.isEmpty()) {
                 Toast.makeText(requireContext(), "Nama budget tidak boleh kosong", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Validasi nominal
+
             if (nominalStr.isEmpty()) {
                 Toast.makeText(requireContext(), "Nominal tidak boleh kosong", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -51,7 +51,7 @@ class AddBudgetFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            // Simpan ke database
+
             val budget = BudgetEntity(name = name, maxAmount = nominal)
             viewModel.insert(budget) {
                 if (it) {

@@ -36,11 +36,11 @@ class ProfileFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
-        // Ambil username dari SharedPreferences
+
         val sharedPref = requireActivity().getSharedPreferences("login_session", Context.MODE_PRIVATE)
         val username = sharedPref.getString("username", null)
 
-        // Load user dari ViewModel
+
         if (username != null) {
             viewModel.fetch(username)
         }

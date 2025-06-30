@@ -16,7 +16,6 @@ class ExpenseViewModel(application: Application) : AndroidViewModel(application)
     private val expenseDao = db.expenseDao()
 
     val allExpenses: LiveData<List<ExpenseEntity>> = expenseDao.getAllExpenses()
-    val totalExpenses: LiveData<Float?> = expenseDao.getTotalExpenses()
 
     fun insert(expense: ExpenseEntity, onResult: (Boolean) -> Unit) {
         viewModelScope.launch {
@@ -32,9 +31,6 @@ class ExpenseViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun getExpensesByBudget(budgetId: Int): LiveData<List<ExpenseEntity>> {
-        return expenseDao.getExpensesByBudget(budgetId)
-    }
     fun getBudgetNameById(budgetId: Int, onResult: (String) -> Unit) {
         viewModelScope.launch {
             try {
@@ -48,18 +44,4 @@ class ExpenseViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-
-    fun getTotalExpenseForBudget(budgetId: Int, onResult: (Float) -> Unit) {
-        viewModelScope.launch {
-            try {
-                val total = withContext(Dispatchers.IO) {
-                    expenseDao.getTotalExpenseForBudget(budgetId) ?: 0f
-                }
-                onResult(total)
-            } catch (e: Exception) {
-                Log.e("ExpenseViewModel", "Error getting total expense: ${e.message}", e)
-                onResult(0f)
-            }
-        }
-    }
 }
